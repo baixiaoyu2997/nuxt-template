@@ -2,4 +2,16 @@
   "editor.codeActionsOnSave":{
     "source.fixAll.stylelint":true // 保存时stylelint自动修复
   },
+  "stylelint.validate": [
+    "css",
+    "less",
+    "postcss",
+    "vue"
+  ],
+  "stylelint.snippet": [
+    "css",
+    "less",
+    "postcss",
+    "vue"
+  ]
 }
