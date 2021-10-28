@@ -1,0 +1,5 @@
+{
+  "editor.codeActionsOnSave":{
+    "source.fixAll.stylelint":true // 保存时stylelint自动修复
+  },
+}
