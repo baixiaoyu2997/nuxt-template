@@ -3,7 +3,10 @@
     <Nuxt />
   </div>
 </template>
-<script setup></script>
+<script setup>
+import useTheme from "~/composables/useTheme"
+useTheme()
+</script>
 <style lang="less" scoped>
 .layout--default {
   min-height: 100vh;

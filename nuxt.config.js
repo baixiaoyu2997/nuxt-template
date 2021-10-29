@@ -1,6 +1,6 @@
 import { defineNuxtConfig } from '@nuxt/bridge'
 import defu from 'defu'
-import { vantConfig } from './config/vant'
+import { vantConfig, compositionConfig } from './config'
 
 const config = {
   head: {
@@ -32,6 +32,7 @@ const config = {
     // '@nuxtjs/ngrok', // 暂时不支持bridge
     '@nuxtjs/eslint-module',
     // '@nuxtjs/stylelint-module',
+    '@nuxtjs/color-mode', // 支持多主题配置
   ],
   stylelint: {
     failOnError: false,
@@ -45,5 +46,5 @@ const config = {
   ],
   axios: {},
 }
-
-export default defineNuxtConfig(defu(config, vantConfig))
+// 合并配置
+export default defineNuxtConfig(defu(config, compositionConfig(), vantConfig()))
