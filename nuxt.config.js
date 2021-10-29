@@ -1,6 +1,9 @@
 import { defineNuxtConfig } from '@nuxt/bridge'
 import defu from 'defu'
+import * as globalConfig from './config.json'
 import { vantConfig, compositionConfig } from './configs'
+import { getIPAdress } from './utils/'
+const isProd = process.env.NODE_ENV === 'production'
 
 const config = {
   head: {
@@ -30,22 +33,53 @@ const config = {
   components: true,
   buildModules: [
     // '@nuxtjs/ngrok', // 暂时不支持bridge
-    '@nuxtjs/eslint-module',
-    '@nuxtjs/stylelint-module',
     '@nuxtjs/color-mode', // 支持多主题配置
+    '@vueuse/core/nuxt',
     '@pinia/nuxt',
   ],
-  stylelint: {
-    failOnError: false,
-  },
-  eslint: {
-    failOnError: false,
-  },
+
   modules: [
-    // https://go.nuxtjs.dev/axios
-    '@nuxtjs/axios',
+    [
+      '@nuxtjs/axios',
+      {
+        // debug: !isProd,
+        retry: { retries: 3 },
+        proxy: !isProd,
+        credentials: true,
+        timeout: 5000,
+      },
+    ],
+    [
+      '@nuxtjs/proxy',
+      // {
+      //   '/forum/': {
+      //     target: 'https://devapi.niuyan.com/',
+      //   },
+      // },
+    ],
+    'nuxt-winston-log',
   ],
-  axios: {},
+
+  publicRuntimeConfig: {
+    ...globalConfig,
+    _host: globalConfig._host.browser,
+    _publicURL: isProd
+      ? globalConfig._publicURL
+      : `http://${getIPAdress()}:9002`,
+    axios: {
+      [isProd ? 'baseURL' : 'prefix']: globalConfig._host.browser.API,
+    },
+  },
+  // privateRuntimeConfig会继承并覆盖publicRuntimeConfig中的配置
+  privateRuntimeConfig: {
+    ...globalConfig,
+    _host: globalConfig._host.server,
+    axios: {
+      [isProd ? 'baseURL' : 'prefix']: isProd
+        ? globalConfig._host.server.API
+        : 'http://localhost:9001', // process.env.BASE_URL,
+    },
+  },
 }
 // 合并配置
 export default defineNuxtConfig(defu(config, compositionConfig(), vantConfig()))

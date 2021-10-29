@@ -1,15 +1,12 @@
 import { defineStore } from 'pinia'
-import { ref } from '#app'
+import { reactive } from '#app'
 
-const useUser = defineStore('user', {
-  state: () => ({
+const useUser = defineStore('user', () => {
+  const user = reactive({
     age: 5,
-    name: ref('张三'),
-  }),
-  actions: {
-    increment() {
-      this.age++
-    },
-  },
+    name: '张三',
+  })
+
+  return toRefs(user)
 })
 export default useUser

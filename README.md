@@ -6,5 +6,6 @@
 ## TODO
 
 ## 特性
+- [x] vueuse
 - [ ] 支持本地页面暴露给公网，便于调试
 - [ ] vant及按需加载，拆分成单独的module，`@yy/nuxt-vant`

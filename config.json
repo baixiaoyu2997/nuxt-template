@@ -14,7 +14,6 @@
     "max": 500,
     "maxAge": 20000
   },
-  "_theme": "light",
   "_pxToVm": true,
   "_publicURL": "https://devpages.niuyan.com"
 }
