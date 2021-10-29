@@ -31,7 +31,7 @@ const config = {
   buildModules: [
     // '@nuxtjs/ngrok', // 暂时不支持bridge
     '@nuxtjs/eslint-module',
-    // '@nuxtjs/stylelint-module',
+    '@nuxtjs/stylelint-module',
     '@nuxtjs/color-mode', // 支持多主题配置
     '@pinia/nuxt',
   ],
