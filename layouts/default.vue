@@ -4,8 +4,9 @@
   </div>
 </template>
 <script setup>
-import useTheme from "~/composables/useTheme"
-useTheme()
+// theme
+// import useTheme from '~/composables/useTheme'
+// const { preference } = useTheme()
 </script>
 <style lang="less" scoped>
 .layout--default {

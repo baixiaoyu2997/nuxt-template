@@ -1,10 +1,44 @@
-# STORE
+## 介绍
+使用pinia
+## 调试
+需要vue devtool v6，下载地址：https://devtools.vuejs.org/guide/installation.html#chrome
 
-**This directory is not required, you can delete it if you don't want to use it.**
+## demo
+```vue
+<template>
+  <div class="home">
+    {{user.name}}
+    <van-button @click="user.name='李四'">change name</van-button>
+    <van-button @click="user.increment()">up</van-button>
+  </div>
+</template>
+<script setup>
+import useUser from '~/store/user'
+const user = useUser()
 
-This directory contains your Vuex Store files.
-Vuex Store option is implemented in the Nuxt.js framework.
+</script>
 
-Creating a file in this directory automatically activates the option in the framework.
+<style>
+.home {
+}
+</style>
+```
+```js
+// store/user.js
+import { defineStore } from 'pinia'
+import { ref } from '#app'
 
-More information about the usage of this directory in [the documentation](https://nuxtjs.org/guide/vuex-store).
+const useUser = defineStore('user', {
+  state: () => ({
+    age: 5,
+    name: ref('张三'),
+  }),
+  actions: {
+    increment() {
+      this.age++
+    },
+  },
+})
+export default useUser
+
+```

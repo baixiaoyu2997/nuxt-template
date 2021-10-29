@@ -1,6 +1,6 @@
 import { defineNuxtConfig } from '@nuxt/bridge'
 import defu from 'defu'
-import { vantConfig, compositionConfig } from './config'
+import { vantConfig, compositionConfig } from './configs'
 
 const config = {
   head: {
@@ -33,6 +33,7 @@ const config = {
     '@nuxtjs/eslint-module',
     // '@nuxtjs/stylelint-module',
     '@nuxtjs/color-mode', // 支持多主题配置
+    '@pinia/nuxt',
   ],
   stylelint: {
     failOnError: false,

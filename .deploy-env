@@ -1,0 +1,4 @@
+DOCKER_REGISTRY=docker-registry.yeeyun.io/niuyan/
+SSH_HOST=139.224.59.131
+SSH_PORT=22
+SSH_USER=ubuntu

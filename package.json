@@ -5,12 +5,15 @@
   "scripts": {
     "dev": "nuxt",
     "build": "nuxt build",
+    "build:test": "nuxt build",
+    "build:prod": "nuxt build",
     "start": "nuxt start",
     "generate": "nuxt generate",
     "lint:js": "eslint --ext \".js,.vue\" --ignore-path .gitignore .",
     "lint:style": "stylelint \"**/*.{vue,css}\" --ignore-path .gitignore",
     "prepare": "husky install",
-    "lint": "yarn lint:js && yarn lint:style"
+    "lint": "yarn lint:js && yarn lint:style",
+    "docker": "npm run build && docker build -t nuxt-vant . "
   },
   "lint-staged": {
     "*.{js,vue}": "eslint",
@@ -18,9 +21,12 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.13.6",
+    "@nuxtjs/composition-api": "^0.29.3",
+    "@pinia/nuxt": "^0.1.0",
     "core-js": "^3.15.1",
     "defu": "^5.0.0",
     "nuxt-edge": "^2.16.0-27256336.293dc11a",
+    "pinia": "^2.0.0",
     "vant": "^2.12.22"
   },
   "devDependencies": {
