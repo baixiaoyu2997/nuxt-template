@@ -7,5 +7,6 @@
 
 ## 特性
 - [x] vueuse
+- [ ] 集成图片优化module,https://github.com/nuxt/image
 - [ ] 支持本地页面暴露给公网，便于调试
 - [ ] vant及按需加载，拆分成单独的module，`@yy/nuxt-vant`

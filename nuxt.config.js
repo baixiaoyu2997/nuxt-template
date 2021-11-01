@@ -59,7 +59,7 @@ const config = {
     ],
     'nuxt-winston-log',
   ],
-
+  loading:false,
   publicRuntimeConfig: {
     ...globalConfig,
     _host: globalConfig._host.browser,
