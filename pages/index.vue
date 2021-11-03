@@ -9,12 +9,14 @@
   </div>
 </template>
 <script setup>
-
 import useUser from '~/store/user'
 import useApp from '~/store/app'
 
+const app=useNuxtApp()
+console.log(app.nuxt2Context.$config)
 const user = useUser()
 const {theme} = toRefs(useApp())
+console.log(process.env.DOCKER_REGISTRY)
 </script>
 
 <style>

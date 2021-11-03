@@ -64,7 +64,7 @@ const config = {
     ...globalConfig,
     _host: globalConfig._host.browser,
     _publicURL: isProd
-      ? globalConfig._publicURL
+      ? 'https://devpages.niuyan.com'
       : `http://${getIPAdress()}:9002`,
     axios: {
       [isProd ? 'baseURL' : 'prefix']: globalConfig._host.browser.API,
