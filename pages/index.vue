@@ -9,14 +9,16 @@
   </div>
 </template>
 <script setup>
+import useTest from '~/use/useTest'
 import useUser from '~/store/user'
 import useApp from '~/store/app'
 
+const test = useTest()
+console.log(test.a.value)
+
 const user = useUser()
-const {theme} = toRefs(useApp())
-
+const { theme } = toRefs(useApp())
 </script>
-
 <style>
 .home {
 }
