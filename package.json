@@ -1,5 +1,5 @@
 {
-  "name": "nuxt-vant",
+  "name": "nuxt-template",
   "version": "1.0.0",
   "private": true,
   "scripts": {
@@ -13,7 +13,7 @@
     "lint:style": "stylelint \"**/*.{vue,css}\" --ignore-path .gitignore",
     "prepare": "husky install",
     "lint": "yarn lint:js && yarn lint:style",
-    "docker": "npm run build && docker build -t nuxt-bridge-vant . "
+    "docker": "npm run build && docker build -t nuxt-template . "
   },
   "lint-staged": {
     "*.{js,vue}": "eslint",
