@@ -7,7 +7,7 @@ const isProd = process.env.NODE_ENV === 'production'
 
 const config = {
   head: {
-    title: 'nuxt-vant',
+    title: 'nuxt-bridge-vant',
     htmlAttrs: {
       lang: 'en',
     },

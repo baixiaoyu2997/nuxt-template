@@ -13,7 +13,7 @@
     "lint:style": "stylelint \"**/*.{vue,css}\" --ignore-path .gitignore",
     "prepare": "husky install",
     "lint": "yarn lint:js && yarn lint:style",
-    "docker": "npm run build && docker build -t nuxt-vant . "
+    "docker": "npm run build && docker build -t nuxt-bridge-vant . "
   },
   "lint-staged": {
     "*.{js,vue}": "eslint",
